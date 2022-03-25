@@ -26,7 +26,7 @@ def index():
 		description = yt.description
 		#Удалим папку если она есть
 		if os.path.exists(path):
-			shutil.rmtree(path)
+			shutil.rmtree("downloads")
 		#Создадим папку
 		os.makedirs(path)
 		#Сохраним описание
