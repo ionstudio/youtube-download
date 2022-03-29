@@ -41,8 +41,8 @@ def index():
 		#Создадим архив ZIP
 		zip = zipfile.ZipFile(f"{path}/{title}.zip", "w")
 		#Добавим файлы в архив ZIP
-		zip.write(f"{path}/description.txt")
-		zip.write(f"{path}/preview.jpg")
+		zip.write(f"{path}/description.txt", arcname = f"{title}/description.txt")
+		zip.write(f"{path}/preview.jpg", arcname = f"{title}/preview.jpg")
 		#zip.write(f"{path}/video.mp4")
 		#Закрываем архив ZIP
 		zip.close()
