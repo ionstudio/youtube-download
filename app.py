@@ -36,14 +36,14 @@ def index():
 		thumbnail = yt.thumbnail_url.replace("sddefault", "maxresdefault")
 		wget.download(thumbnail, f"{path}/preview.jpg")
 		#Видео
-		#yt = yt.streams.filter(progressive = True, file_extension = "mp4").order_by("resolution").desc().first()
-		#yt.download(path, "video.mp4")
+		yt = yt.streams.filter(progressive = True, file_extension = "mp4").order_by("resolution").desc().first()
+		yt.download(path, "video.mp4")
 		#Создадим архив ZIP
 		zip = zipfile.ZipFile(f"{path}/{title}.zip", "w")
 		#Добавим файлы в архив ZIP
-		zip.write(f"{path}/description.txt", arcname = f"{title}/description.txt")
-		zip.write(f"{path}/preview.jpg", arcname = f"{title}/preview.jpg")
-		#zip.write(f"{path}/video.mp4")
+		zip.write(f"{path}/description.txt", arcname = "description.txt")
+		zip.write(f"{path}/preview.jpg", arcname = "preview.jpg")
+		zip.write(f"{path}/video.mp4", arcname = "video.mp4")
 		#Закрываем архив ZIP
 		zip.close()
 		#Отдаем архив на скачивание
